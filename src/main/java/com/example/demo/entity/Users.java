@@ -1,34 +1,44 @@
 package com.example.demo.entity;
 
+
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
+
+
+@Data
 @Entity
+@AllArgsConstructor
 public class Users {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY) 
 	private Long id;
-	@Column(nullable=false)
+	
+	@NotBlank(message = "Name is required field")
 	private String name;
+	
 	@Column(nullable=false , unique=true)
 	private String email;
+	
+	
 	private Long number;
+	
+	@NotBlank(message = "Password is equiredfield")
 	private String password;
 	
-	public Users() {}
-
-	public Users(Long id, String name, String email, Long number, String password) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.email = email;
-		this.number = number;
-		this.password = password;
-	}
+	@OneToMany(mappedBy= "users" ,cascade = CascadeType.ALL)
+	List <Events> events ;
 
 	public Long getId() {
 		return id;
@@ -69,12 +79,7 @@ public class Users {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	@Override
-	public String toString() {
-		return "Users [id=" + id + ", name=" + name + ", email=" + email + ", number=" + number + ", password="
-				+ password + "]";
-	}
+	
 	
 	
 	
