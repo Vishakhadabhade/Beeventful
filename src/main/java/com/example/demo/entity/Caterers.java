@@ -1,33 +1,38 @@
 package com.example.demo.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 @Entity
+@Data
+@AllArgsConstructor
+
 public class Caterers {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY) 
 	private Long id;
+	
+	@NotBlank(message = "Name is required field")
 	private String name;
+	
 	@Column(nullable=false , unique=true)
 	private String caterersCode;
+	
 	private Long pricePerVegPlate;
+	
 	private Long pricePerNonVegPlate;
 	
-	public Caterers() {}
-
-	public Caterers(Long id, String name, String caterersCode, Long pricePerVegPlate, Long pricePerNonVegPlate) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.caterersCode = caterersCode;
-		this.pricePerVegPlate = pricePerVegPlate;
-		this.pricePerNonVegPlate = pricePerNonVegPlate;
-	}
+	@OneToMany(mappedBy= "caterers" ,cascade = CascadeType.ALL)
+	List <Events> events ;
 
 	public Long getId() {
 		return id;
@@ -68,15 +73,8 @@ public class Caterers {
 	public void setPricePerNonVegPlate(Long pricePerNonVegPlate) {
 		this.pricePerNonVegPlate = pricePerNonVegPlate;
 	}
-
-	@Override
-	public String toString() {
-		return "Caterers [id=" + id + ", name=" + name + ", caterersCode=" + caterersCode + ", pricePerVegPlate="
-				+ pricePerVegPlate + ", pricePerNonVegPlate=" + pricePerNonVegPlate + "]";
-	}
 	
 	
 	
 	
-
 }
