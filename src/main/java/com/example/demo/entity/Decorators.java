@@ -1,33 +1,38 @@
 package com.example.demo.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
+
+@Data
 @Entity
+@AllArgsConstructor
 public class Decorators {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY) 
 	private Long id;
+	
+	@NotBlank(message = "Name is required field")
 	private String name;
+	
 	@Column(nullable=false , unique=true)
 	private String decoratorsCode;
+	
 	private Long indoorDecor;
+	
 	private Long outdoorDecor;
 	
-	public Decorators() {}
-
-	public Decorators(Long id, String name, String decoratorsCode, Long indoorDecor, Long outdoorDecor) {
-		super();
-     	this.id = id;
-		this.name = name;
-		this.decoratorsCode = decoratorsCode;
-		this.indoorDecor = indoorDecor;
-		this.outdoorDecor = outdoorDecor;
-	}
+	@OneToMany(mappedBy= "decorators" ,cascade = CascadeType.ALL)
+	List <Events> events ;
 
 	public Long getId() {
 		return id;
@@ -69,12 +74,13 @@ public class Decorators {
 		this.outdoorDecor = outdoorDecor;
 	}
 
-	@Override
-	public String toString() {
-		return "Decorators [id=" + id + ", name=" + name + ", decoratorsCode=" + decoratorsCode + ", indoorDecor="
-				+ indoorDecor + ", outoorDecor=" + outdoorDecor + "]";
+	public List<Events> getEvents() {
+		return events;
 	}
-	
+
+	public void setEvents(List<Events> events) {
+		this.events = events;
+	}
 	
 	
 	
