@@ -30,6 +30,7 @@ import com.example.demo.service.LocationsService;
 import com.example.demo.service.UsersService;
 
 import jakarta.servlet.http.HttpSession;  
+import jakarta.validation.Valid;
 
 @RestController  
 @CrossOrigin(origins="http://localhost:4200") 
@@ -56,7 +57,7 @@ public class Controller {
 	
 	
 	@PostMapping("/caterers")
-	public Caterers saveCaterer(@RequestBody Caterers caterer)
+	public Caterers saveCaterer(@Valid @RequestBody Caterers caterer)
 	{
 		logger.info("save Caterer");
 		return catservice.saveCaterer(caterer);
@@ -86,7 +87,7 @@ public class Controller {
 	}
 	
 	@PutMapping("/caterers/{id}")
-	public Caterers updateCaterer(@PathVariable("id")Long id ,@RequestBody Caterers caterer)
+	public Caterers updateCaterer(@PathVariable("id")Long id ,@Valid @RequestBody Caterers caterer)
 	{
 		logger.info("Caterer updated");
 		return catservice.updateCaterer(id, caterer);
@@ -96,7 +97,7 @@ public class Controller {
 	
 	
 	@PostMapping("/decorators")
-	public Decorators saveDecorator(@RequestBody Decorators decorator)
+	public Decorators saveDecorator(@Valid @RequestBody Decorators decorator)
 	{
 		logger.info("save Decorator");
 		return decservice.saveDecorator(decorator);
@@ -126,7 +127,7 @@ public class Controller {
 	}
 	
 	@PutMapping("/decorators/{id}")
-	public Decorators updateDecorator(@PathVariable("id")Long id ,@RequestBody Decorators decorator)
+	public Decorators updateDecorator(@PathVariable("id")Long id ,@Valid @RequestBody Decorators decorator)
 	{
 		logger.info("Decorator updated");
 		return decservice.updateDecorator(id, decorator);
@@ -134,7 +135,7 @@ public class Controller {
 	
 	
 	@PostMapping("/event")
-	public Event saveEvent(@RequestBody Event event)
+	public Event saveEvent(@Valid @RequestBody Event event)
 	{
 		logger.info("save Event");
 		return eveservice.saveEvent(event);
@@ -164,14 +165,14 @@ public class Controller {
 	}
 	
 	@PutMapping("/event/{id}")
-	public Event updateEvent(@PathVariable("id")Long id ,@RequestBody Event event)
+	public Event updateEvent(@PathVariable("id")Long id ,@Valid @RequestBody Event event)
 	{
 		logger.info("Event updated");
 		return eveservice.updateEvent(id, event);
 	}
 	
 	@PostMapping("/locations")
-	public Locations saveLocation(@RequestBody Locations location)
+	public Locations saveLocation(@Valid @RequestBody Locations location)
 	{
 		logger.info("save Location");
 		return locservice.saveLocation(location);
@@ -201,7 +202,7 @@ public class Controller {
 	}
 	
 	@PutMapping("/locations/{id}")
-	public Locations updateLocation(@PathVariable("id")Long id ,@RequestBody Locations location)
+	public Locations updateLocation(@PathVariable("id")Long id ,@Valid @RequestBody Locations location)
 	{
 		logger.info("Location updated");
 		return locservice.updateLocation(id, location);
@@ -211,7 +212,7 @@ public class Controller {
 	
 	@PostMapping("/users")
 	@CrossOrigin(origins = "http://localhost:4200")
-	public Users saveUsers(@RequestBody Users users)throws Exception
+	public Users saveUsers(@Valid @RequestBody Users users)throws Exception
 	{
 		String tempEmail = users.getEmail();
 		if(tempEmail != null &&!"".equals(tempEmail)) {
@@ -251,7 +252,7 @@ public class Controller {
 	}
 	
 	@PutMapping("/users/{id}")
-	public Users updateUser(@PathVariable("id")Long id ,@RequestBody Users users)
+	public Users updateUser(@PathVariable("id")Long id ,@Valid @RequestBody Users users)
 	{
 		logger.info("User updated");
 		return userservice.updateUsers(id, users);
@@ -260,7 +261,7 @@ public class Controller {
 
 	@PostMapping("/login")
 	@CrossOrigin(origins = "http://localhost:4200")
-	public Users loginUser(@RequestBody Users users ) throws Exception
+	public Users loginUser(@Valid @RequestBody Users users ) throws Exception
 	{
 		String tempEmail = users.getEmail();
 		String tempPass = users.getPassword();
