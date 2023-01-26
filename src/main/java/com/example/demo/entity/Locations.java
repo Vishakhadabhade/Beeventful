@@ -2,7 +2,6 @@ package com.example.demo.entity;
 
 import java.util.List;
 
-import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -15,11 +14,12 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-
+@AllArgsConstructor
 @Data
 @Entity
-@AllArgsConstructor
-public class Decorators {
+
+
+public class Locations {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY) 
@@ -29,13 +29,13 @@ public class Decorators {
 	private String name;
 	
 	@Column(nullable=false , unique=true)
-	private String decoratorsCode;
+	private String locationCode;
 	
-	private Long indoorDecor;
+	private String state;
 	
-	private Long outdoorDecor;
+	private Long perDayRent;
 	
-	@OneToMany(mappedBy= "decorators" ,cascade = CascadeType.ALL)
+	@OneToMany(mappedBy= "locations" ,cascade = CascadeType.ALL)
 	List <Events> events ;
 
 	public Long getId() {
@@ -54,39 +54,29 @@ public class Decorators {
 		this.name = name;
 	}
 
-	public String getDecoratorsCode() {
-		return decoratorsCode;
+	public String getLocationCode() {
+		return locationCode;
 	}
 
-	public void setDecoratorsCode(String decoratorsCode) {
-		this.decoratorsCode = decoratorsCode;
+	public void setLocationCode(String locationCode) {
+		this.locationCode = locationCode;
 	}
 
-	public Long getIndoorDecor() {
-		return indoorDecor;
+	public String getState() {
+		return state;
 	}
 
-	public void setIndoorDecor(Long indoorDecor) {
-		this.indoorDecor = indoorDecor;
+	public void setState(String state) {
+		this.state = state;
 	}
 
-	public Long getOutdoorDecor() {
-		return outdoorDecor;
+	public Long getPerDayRent() {
+		return perDayRent;
 	}
 
-	public void setOutdoorDecor(Long outdoorDecor) {
-		this.outdoorDecor = outdoorDecor;
+	public void setPerDayRent(Long perDayRent) {
+		this.perDayRent = perDayRent;
 	}
-
-	public List<Events> getEvents() {
-		return events;
-	}
-
-	public void setEvents(List<Events> events) {
-		this.events = events;
-	}
-	
-	
 	
 
 }
