@@ -47,6 +47,15 @@ public class EventServiceImpl implements EventService {
 		{
 			eve.setEventType(event.getEventType());
 		}
+		if(Objects.nonNull(events.getEventStartDate()))
+		{
+			eve.setEventStartDate(events.getEventStartDate());
+		}
+		
+		if(Objects.nonNull(events.getEventEndDate()))
+		{
+			eve.setEventEndDate(events.getEventEndDate());
+		}
 		
 		return everepo.save(eve);
 	}
