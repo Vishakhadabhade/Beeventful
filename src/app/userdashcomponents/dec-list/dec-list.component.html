@@ -1,0 +1,42 @@
+
+<nav class="navbar navbar-light ">
+    <div class="container-fluid">
+      <ul>
+        <li>
+           <h1 style="color : white">Decorators List</h1>
+        </li>
+        <li>
+           <button (click)="gotoRegistry()" class="btn btn-success"style="margin-left: 10px"btn-success>Vendors Registry</button>
+        </li>
+        
+    </ul> 
+    </div>
+  </nav> 
+  <table class = " table table-striped">
+    <thead>
+      <tr>
+          <th>Id</th>
+          <th>Decorators Name</th>
+          <th>Decorators Code</th>
+          <th>Indoor Decor Price</th>
+          <th>Outdoor Decor Price</th>
+          <th> Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor  = "let decorator of decorators">
+          <td>{{decorator.id}}</td>
+          <td>{{decorator.name}}</td>
+          <td>{{decorator.decoratorsCode}}</td>
+          <td>{{decorator.indoorDecor}}</td>
+          <td>{{decorator.outdoorDecor}}</td>
+          <td>
+            <button (click) = "DecoratorDetails(decorator.id)" class="btn btn-info" style="margin-left: 10px">View</button>
+          </td>
+  
+      </tr>
+    </tbody>
+  </table>
+  
+  
+

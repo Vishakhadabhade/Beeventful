@@ -1,0 +1,21 @@
+
+.nav-link
+{
+    color: var(--secondary-color);
+    
+}
+
+.navbar-brand
+{
+    font-family:"Times New Roman", Times, serif;
+    font-weight:bolder;
+    font-style: italic;
+    
+}
+
+.nav-link.active-link
+{
+    color: var(--primary-color);
+    text-decoration: underline;
+   
+}

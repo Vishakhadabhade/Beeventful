@@ -1,0 +1,41 @@
+
+<nav class="navbar navbar-light ">
+  <div class="container-fluid">
+    <ul>
+      <li>
+         <h1 style="color : rgb(255, 255, 255)">Caterer List</h1>
+      </li>
+      <li>
+         <button (click)="gotoRegistry()" class="btn btn-success"style="margin-left: 10px">Vendors Registry</button>  
+      </li>
+  </ul> 
+  </div>
+</nav>
+
+<table class = " table table-striped">
+    <thead>
+      <tr>
+          <th>Id</th>
+          <th>Caterers Name</th>
+          <th>Caterers Code</th>
+          <th>price per Veg Plate</th>
+          <th>price per NonVeg Plate</th>
+           <th> Actions</th> 
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor  = "let caterer of caterers">
+          <td>{{caterer.id}}</td>
+          <td>{{caterer.name}}</td>
+          <td>{{caterer.caterersCode}}</td>
+          <td>{{caterer.pricePerVegPlate}}</td>
+          <td>{{caterer.pricePerNonVegPlate}}</td>
+           <td>
+            <button (click) = "CatererDetails(caterer.id)" class="btn btn-info" style="margin-left: 10px">View</button>
+          </td> 
+  
+      </tr>
+    </tbody>
+  </table>
+  
+   

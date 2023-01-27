@@ -1,0 +1,45 @@
+<div class = "outer">
+    <div class = "container">
+        <div class = "row">
+        <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+            <div class="panel border bg-white">
+                <div class="panel-heading">
+                    <h3 class="pt-3 font-weight-bold"> Add Location </h3>
+                </div>
+               
+                 <div class="panel-body p-3">
+                      <form (ngSubmit)="onSubmit()">
+
+                        <div class="form-group pt-3">
+                            <div class="input-field">
+                              <input type="text" placeholder="Location Name"  [(ngModel)] = "locations.name" name="name" required>
+                              </div>
+                         </div>
+
+                        <div class="form-group pt-3">
+                            <div class="input-field">
+                              <input type="text" placeholder="Location Code" [(ngModel)] = "locations.locationCode" name="locationCode" required>
+                              </div>
+                         </div>
+
+                       <div class="form-group pt-3">
+                           <div class="input-field">
+                             <input type="text" placeholder="State"   [(ngModel)] = "locations.state" name="state" required>
+                             </div>
+                        </div>
+
+                        <div class="form-group pt-3">
+                            <div class="input-field">
+                              <input type="number" placeholder="Per Day Rent"  [(ngModel)] = "locations.perDayRent" name="perDayRent" required>
+                             
+                              </div>
+                         </div>
+                         <button type="submit" class="btn btn-light btn-block mt-4 w-100">Add Location</button>
+                     </form>
+                 </div>
+               </div>
+          </div>
+        </div>
+    </div>
+</div>
+

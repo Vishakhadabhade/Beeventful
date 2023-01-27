@@ -1,0 +1,25 @@
+.btn-light
+{
+    background-color:rgb(78 22 57);
+    color: white;
+}
+
+th
+{
+    text-align: center;
+}
+
+td
+{
+    text-align: center;
+}
+
+th
+{
+    background-color: rgb(138, 90, 90);
+    padding: 10px;
+}
+nav
+{
+    background-color: rgb(121, 38, 101);
+}

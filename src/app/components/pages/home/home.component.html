@@ -1,0 +1,38 @@
+<div class="banner">
+    <div class="content">
+        <h1 class="mb-5">Your vision. Our innovation.<br> Event solutions.</h1>
+        <a routerLink="register">Book Event <i class="bi bi-arrow-right"></i></a>
+    </div>
+</div>
+
+<div class="container mt-5 mb-4">
+    <h1 class="text-center">Looking for a <span class="highlight"> perfect Event?</span></h1>
+    <div class="row mt-5">
+
+        <div class="col-lg-4 mt-2">
+            <div class="stepBox">
+                <p>select Your dream theme</p>
+            </div>
+        </div>
+        <div class="col-lg-4 mt-2">
+            <div class="stepBox">
+                <p>customize your event</p>
+            </div>
+        </div>
+        <div class="col-lg-4 mt-2">
+            <div class="stepBox">
+                <p>Design your perfect day</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4 mb-4">
+    <div class="row">
+        <div class="col-lg-3" *ngFor="let pc of picture">
+            <div class="imageBox">
+                <img src="{{pc.img}}" />
+            </div>
+        </div>
+    </div>
+</div>

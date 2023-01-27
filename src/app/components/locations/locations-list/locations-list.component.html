@@ -1,0 +1,43 @@
+<nav class="navbar navbar-light ">
+  <div class="container-fluid">
+    <ul>
+      <li>
+         <h1 style="color : rgb(255, 255, 255)">Location List</h1>
+      </li>
+      <li>
+         <button (click)="gotoRegistry()" class="btn btn-success"style="margin-left: 10px">Vendors Registry</button>  
+         <button (click)="addLocation()" class="btn btn-success" style="margin-left: 10px">Add Location</button>
+      </li>
+  </ul> 
+  </div>
+</nav>
+
+<table class = " table table-striped">
+  <thead>
+    <tr>
+        <th>Id</th>
+        <th>Location Name</th>
+        <th>Location Code</th>
+        <th>State</th>
+        <th>Per Day Rent</th>
+        <th> Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor  = "let location of locations">
+        <td>{{location.id}}</td>
+        <td>{{location.name}}</td>
+        <td>{{location.locationCode}}</td>
+        <td>{{location.state}}</td>
+        <td>{{location.perDayRent}}</td>
+        <td>
+          <button (click) = "updateLocation(location.id)" class="btn btn-info" style="margin-left: 10px" >Update</button>
+          <button (click) = "deleteLocation(location.id)" class="btn btn-danger" style="margin-left: 10px">Delete</button>
+          <button (click) = "LocationDetails(location.id)" class="btn btn-info" style="margin-left: 10px">View</button>
+        </td>
+
+    </tr>
+  </tbody>
+</table>
+
+

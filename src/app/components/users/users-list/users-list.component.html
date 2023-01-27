@@ -1,0 +1,44 @@
+<nav class="navbar navbar-light ">
+  <div class="container-fluid">
+    <ul>
+      <li>
+         <h1 style="color : rgb(255, 255, 255)">User List</h1>
+      </li>
+      <li>
+         <button (click)="gotoRegistry()" class="btn btn-success"style="margin-left: 10px">Vendors Registry</button>  
+         <button (click)="addUser()" class="btn btn-success" style="margin-left: 10px">>Add User</button>
+      </li>
+  </ul> 
+  </div>
+</nav>
+
+<table class = " table table-striped">
+  <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name </th>
+        <th> Email</th>
+        <th> Number</th>
+         <th>password</th> 
+        <th> Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor  = "let user of users">
+        <td>{{user.id}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.number}}</td>
+        <td>{{user.password}}</td>
+        <td>
+          <button (click) = "updateUser(user.id)" class="btn btn-info" style="margin-left: 10px" >Update</button>
+          <button (click) = "deleteUser(user.id)" class="btn btn-danger" style="margin-left: 10px">Delete</button>
+          <button (click) = "UserDetails(user.id)" class="btn btn-info" style="margin-left: 10px">View</button>
+        </td>
+
+    </tr>
+  </tbody>
+</table>
+
+
+

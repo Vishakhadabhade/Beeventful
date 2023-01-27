@@ -1,0 +1,41 @@
+<nav class="navbar navbar-light ">
+  <div class="container-fluid">
+    <ul>
+      <li>
+         <h1 style="color : white">Location List</h1>
+      </li>
+      <li>
+         <button (click)="gotoRegistry()" class="btn btn-success"style="margin-left: 10px"btn-success>Vendors Registry</button>  
+      </li>
+  </ul> 
+  </div>
+</nav>
+
+
+<table class = " table table-striped">
+  <thead>
+    <tr>
+        <th>Id</th>
+        <th>Location Name</th>
+        <th>Location Code</th>
+        <th>State</th>
+        <th>Per Day Rent</th>
+        <th> Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor  = "let location of locations">
+        <td>{{location.id}}</td>
+        <td>{{location.name}}</td>
+        <td>{{location.locationCode}}</td>
+        <td>{{location.state}}</td>
+        <td>{{location.perDayRent}}</td>
+        <td>
+          <button (click) = "LocationDetails(location.id)" class="btn btn-info" style="margin-left: 10px">View</button>
+        </td>
+
+    </tr>
+  </tbody>
+</table>
+
+
